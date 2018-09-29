@@ -1,5 +1,6 @@
-from keras.callbacks import LearningRateScheduler, ModelCheckpoint, EarlyStopping
+from keras.callbacks import LearningRateScheduler, ModelCheckpoint, EarlyStopping, TensorBoard
 from math import pi, cos
+import os
 
 
 def generate_learning_rate_schedule(min_lr, max_lr, period, decay_start=10):
@@ -21,3 +22,11 @@ def generate_check_point(model_name):
 def generate_early_stopping():
     early_stopping = EarlyStopping(patience=5)
     return early_stopping
+
+
+def generate_tensorboard(model_name, target):
+    dir = './logs/' + model_name + '_' + target
+    if not os.path.exists(dir):
+        os.mkdir(dir)
+    tb = TensorBoard(log_dir=dir)
+    return tb

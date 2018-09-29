@@ -52,9 +52,7 @@ def build_model_v2(embedding_matrixes, maxlen, regularizer, dropout):
     sent_conv3 = Conv1D(8, 15, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
     sent_pool3 = MaxPooling1D(5)(sent_conv3)
     concat = Concatenate()([sent_pool1, sent_pool2, sent_pool3])
-    conv = Conv1D(64, 5)(concat)
-    pool = MaxPooling1D(5)(conv)
-    conv = Conv1D(128, 5)(pool)
+    conv = Conv1D(256, 5)(concat)
     pool = MaxPooling1D(5)(conv)
     flat = Flatten()(pool)
     dense = Dense(128, activation='relu')(flat)
@@ -114,7 +112,8 @@ def main(maxlen, model_name):
         lr_schedule = generate_learning_rate_schedule(0.001, 0.1, 10, 0)
         checkpoint = generate_check_point(model_name+'_'+target)
         early_stopping = generate_early_stopping()
-        callbacks = [lr_schedule, checkpoint, early_stopping]
+        tensorboard = generate_tensorboard(model_name, target)
+        callbacks = [lr_schedule, checkpoint, early_stopping, tensorboard]
 
         for regularizer in (0.0001,):
             for dropout in (0.3,):
