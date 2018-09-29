@@ -2,6 +2,8 @@ from torch.utils.data import Dataset
 import pandas as pd
 from train_config import data_path_config
 from keras.utils import to_categorical
+import numpy as np
+import os
 
 
 labels_dict = {-2: 0,
@@ -12,6 +14,24 @@ labels_dict = {-2: 0,
 content_labels_dict = {-1: 0,
                        0: 1,
                        1: 2}
+
+labels_array = np.array([-2, -1, 0, 1])
+
+
+def calculate_labels(predictions):
+    label_idx = np.argmax(predictions, axis=1)
+    return labels_array[label_idx]
+
+
+def save_predictions(predictions, path, target):
+    predict_labels = calculate_labels(predictions)
+    if os.path.exists(path):
+        data = pd.read_csv(path)
+    else:
+        data = pd.DataFrame()
+    data[target] = predict_labels
+    data.to_csv(path)
+    return
 
 
 class UserCommentDataset(Dataset):
@@ -24,7 +44,9 @@ class UserCommentDataset(Dataset):
         self.content = full_content[content].values
         self.binary = binary
         self.labels_dict = labels_dict
-        self.target = full_content[target].values
+        self.target = np.ones(full_content.shape[0])
+        if target:
+            self.target = full_content[target].values
 
     def __len__(self):
         return self.content.shape[0]
@@ -62,7 +84,7 @@ if __name__ == '__main__':
     #     if i == 10:
     #         break
 
-    train_has_location = UserCommentContainDataset(data_path, 'location_traffic_convenience', segment=False)
+    train_has_location = UserCommentContainDataset(data_path, 'location_traffic_convenience')
     for i in range(len(train_has_location)):
         content, target = train_has_location[i]
         print(content)

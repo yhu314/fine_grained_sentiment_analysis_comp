@@ -1,4 +1,4 @@
-from torch_data import UserCommentDataset
+from torch_data import UserCommentDataset, calculate_labels, save_predictions
 from train_config import data_path_config, targets
 from gensim.models import KeyedVectors
 from keras import Model
@@ -62,7 +62,8 @@ def main(maxlen, model_name):
     # Load data path and config
     train_path = data_path_config['train_data_path']
     valid_path = data_path_config['valid_data_path']
-    # test_path = data_path_config['test_data_path']
+    test_path = data_path_config['test_data_path']
+    submission_path = data_path_config['submission_path']
     embedding_path = data_path_config['embedding_path']
     w2v = KeyedVectors.load_word2vec_format(embedding_path, binary=True, unicode_errors='ignore')
 
@@ -75,6 +76,7 @@ def main(maxlen, model_name):
     for tok, idx in tok2idx.items():
         w2v_embedding[idx, :] = w2v[tok]
 
+    test_data = UserCommentDataset(valid_path, None, content='jieba_seg', binary=False)
     for target in targets:
         # clear Keras session
         K.clear_session()
@@ -82,14 +84,25 @@ def main(maxlen, model_name):
         # Load Data
         train_data = UserCommentDataset(train_path, target, content='jieba_seg', binary=False)
         valid_data = UserCommentDataset(valid_path, target, content='jieba_seg', binary=False)
+
+        # Convert to training and test data
         X_train, Y_train = zip(*train_data)
         X_valid, Y_valid = zip(*valid_data)
+        X_test, _ = zip(*test_data)
+
+        # Convert target data
         Y_train = np.asarray(Y_train, dtype=float)
         Y_valid = np.asarray(Y_valid, dtype=float)
+
+        # Convert sentences to sequences
         X_train_seq = texts_to_sequences(X_train, tok2idx)
         X_valid_seq = texts_to_sequences(X_valid, tok2idx)
+        X_test_seq = texts_to_sequences(X_test, tok2idx)
+
+        # Pad sequence
         X_train_pad = pad_sequences(X_train_seq, maxlen=maxlen)
         X_valid_pad = pad_sequences(X_valid_seq, maxlen=maxlen)
+        X_test_pad = pad_sequences(X_test_seq, maxlen=maxlen)
 
         # generate callbacks for training
         lr_schedule = generate_learning_rate_schedule(0.001, 0.1, 10, 0)
@@ -107,6 +120,13 @@ def main(maxlen, model_name):
                 model.fit(X_train_pad, Y_train, validation_data=(X_valid_pad, Y_valid),
                           callbacks=callbacks, verbose=2,
                           epochs=100, batch_size=64)
+
+                Y_valid_pred_prob = model.predict(X_valid_pad, batch_size=64)
+                Y_test_pred_prob = model.predict(X_test_pad, batch_size=64)
+                Y_valid_pred = calculate_labels(Y_valid_pred_prob)
+                print('----F1 Score for validation set----')
+                print(f1(Y_valid, Y_valid_pred))
+                save_predictions(Y_test_pred_prob, target,submission_path)
     return
 
 
