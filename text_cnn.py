@@ -16,9 +16,11 @@ from keras.regularizers import l1_l2
 from metrics import f1
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
+from sklearn.metrics import f1_score
 config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.8
 set_session(tf.Session(config=config))
+K.clear_session()
 
 
 def constrainedCrossEntropy(ytrue, ypred):
@@ -43,14 +45,18 @@ def build_model_v2(embedding_matrixes, maxlen, regularizer, dropout):
     sent_embedding = Concatenate(axis=-1)([sent_random, sent_w2v])
     sent_embedding = SpatialDropout1D(0.2)(sent_embedding)
 
-    sent_conv1 = Conv1D(3, 5, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
+    sent_conv1 = Conv1D(8, 5, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
     sent_pool1 = MaxPooling1D(5)(sent_conv1)
-    sent_conv2 = Conv1D(3, 10, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
+    sent_conv2 = Conv1D(8, 10, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
     sent_pool2 = MaxPooling1D(5)(sent_conv2)
-    sent_conv3 = Conv1D(3, 15, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
+    sent_conv3 = Conv1D(8, 15, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
     sent_pool3 = MaxPooling1D(5)(sent_conv3)
     concat = Concatenate()([sent_pool1, sent_pool2, sent_pool3])
-    flat = Flatten()(concat)
+    conv = Conv1D(64, 5)(concat)
+    pool = MaxPooling1D(5)(conv)
+    conv = Conv1D(128, 5)(pool)
+    pool = MaxPooling1D(5)(conv)
+    flat = Flatten()(pool)
     dense = Dense(128, activation='relu')(flat)
     # dense = Dropout(dropout)(dense)
     logit = Dense(4, activation='softmax')(dense)
@@ -76,7 +82,7 @@ def main(maxlen, model_name):
     for tok, idx in tok2idx.items():
         w2v_embedding[idx, :] = w2v[tok]
 
-    test_data = UserCommentDataset(valid_path, None, content='jieba_seg', binary=False)
+    test_data = UserCommentDataset(test_path, None, content='jieba_seg', binary=False)
     for target in targets:
         # clear Keras session
         K.clear_session()
@@ -125,7 +131,7 @@ def main(maxlen, model_name):
                 Y_test_pred_prob = model.predict(X_test_pad, batch_size=64)
                 Y_valid_pred = calculate_labels(Y_valid_pred_prob)
                 print('----F1 Score for validation set----')
-                print(f1(Y_valid, Y_valid_pred))
+                print(f1_score(Y_valid, Y_valid_pred, average='macro'))
                 save_predictions(Y_test_pred_prob, target,submission_path)
     return
 

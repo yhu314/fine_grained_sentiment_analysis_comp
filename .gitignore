@@ -2,3 +2,5 @@
 data/sentiment_analysis_testa.csv
 *.csv
 *.kv
+*.hdf5
+Untitled.ipynb
