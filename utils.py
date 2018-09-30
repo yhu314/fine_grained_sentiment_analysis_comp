@@ -2,6 +2,7 @@
 Utility file for processing data
 """
 import numpy as np
+import os
 
 
 def build_tok2idx(w2v):
@@ -34,3 +35,12 @@ def texts_to_sequences(texts, tok2idx):
             sequence.append(tok2idx[token])
         sequences.append(sequence)
     return sequences
+
+
+def save_model(model, model_name, target):
+    model_dir = os.path.join(model_name, 'models')
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dir)
+    model_path = os.path.join(model_dir, target+'.h5')
+    model.save(model_path)
+    return

@@ -13,8 +13,11 @@ def generate_learning_rate_schedule(min_lr, max_lr, period, decay_start=10):
     return LearningRateScheduler(learn_rate_func, verbose=1)
 
 
-def generate_check_point(model_name):
-    file_path = model_name+'_{epoch:02d}_loss_{val_loss:.4f}_acc_{acc:0.4f}_f1_{f1:0.4f}.hdf5'
+def generate_check_point(model_name, target):
+    model_dir = os.path.join(os.path.join(model_name, 'checkpoints'), target)
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dir)
+    file_path = model_dir+'_{epoch:02d}_loss_{val_loss:.4f}_acc_{acc:0.4f}_f1_{f1:0.4f}.hdf5'
     checkpoint = ModelCheckpoint(file_path, monitor='val_loss', save_best_only=True)
     return checkpoint
 
@@ -27,6 +30,6 @@ def generate_early_stopping():
 def generate_tensorboard(model_name, target):
     dir = './logs/' + model_name + '_' + target
     if not os.path.exists(dir):
-        os.mkdir(dir)
+        os.makedirs(dir)
     tb = TensorBoard(log_dir=dir)
     return tb

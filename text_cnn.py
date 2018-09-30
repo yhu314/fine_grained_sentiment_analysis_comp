@@ -52,9 +52,7 @@ def build_model_v2(embedding_matrixes, maxlen, regularizer, dropout):
     sent_conv3 = Conv1D(8, 15, padding='same', activation='relu', kernel_regularizer=l1_l2(regularizer))(sent_embedding)
     sent_pool3 = MaxPooling1D(5)(sent_conv3)
     concat = Concatenate()([sent_pool1, sent_pool2, sent_pool3])
-    conv = Conv1D(256, 5)(concat)
-    pool = MaxPooling1D(5)(conv)
-    flat = Flatten()(pool)
+    flat = Flatten()(concat)
     dense = Dense(128, activation='relu')(flat)
     # dense = Dropout(dropout)(dense)
     logit = Dense(4, activation='softmax')(dense)
@@ -109,8 +107,8 @@ def main(maxlen, model_name):
         X_test_pad = pad_sequences(X_test_seq, maxlen=maxlen)
 
         # generate callbacks for training
-        lr_schedule = generate_learning_rate_schedule(0.001, 0.1, 10, 0)
-        checkpoint = generate_check_point(model_name+'_'+target)
+        lr_schedule = generate_learning_rate_schedule(0.001, 0.1, 20, 0)
+        checkpoint = generate_check_point(model_name, target)
         early_stopping = generate_early_stopping()
         tensorboard = generate_tensorboard(model_name, target)
         callbacks = [lr_schedule, checkpoint, early_stopping, tensorboard]
@@ -129,13 +127,15 @@ def main(maxlen, model_name):
                 Y_valid_pred_prob = model.predict(X_valid_pad, batch_size=64)
                 Y_test_pred_prob = model.predict(X_test_pad, batch_size=64)
                 Y_valid_pred = calculate_labels(Y_valid_pred_prob)
+                y_valid_true = calculate_labels(Y_valid)
                 print('----F1 Score for validation set----')
-                print(f1_score(Y_valid, Y_valid_pred, average='macro'))
-                save_predictions(Y_test_pred_prob, target,submission_path)
+                print(f1_score(y_valid_true, Y_valid_pred, average='macro'))
+                save_predictions(Y_test_pred_prob, submission_path, target)
+                save_model(model, model_name, target)
     return
 
 
 if __name__ == '__main__':
     maxlen = 2890
-    model_name = 'text_cnn_w2v/simple_textcnn_category_sgd_spatial'
-    main(maxlen,model_name)
+    model_name = 'simple_textcnn_category_sgd_spatial'
+    main(maxlen, model_name)
