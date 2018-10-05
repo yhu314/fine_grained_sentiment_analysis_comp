@@ -61,6 +61,19 @@ def tokenize(sent_list, word2idx):
         tokens_list.append(tokens)
     return tokens_list
 
+# (2,3)gram, type of input is list of string, source data, return [bigram, thgram], type is string
+def ngram(sent_list):
+    ngram_list = []
+    for sentence in sent_list:
+        bi_tokens = []
+        th_tokens = []
+        for index in range(len(sentence)-1):
+            bi_tokens.append(sentence[index:index+1])
+        for index in range(len(sentence)-2):
+            th_tokens.append(snetence[index:index+2])
+    ngram_list.append(bi_tokens)
+    ngram_list.append(th_tokens)
+    return ngram_list
 
 def load_data():
     # Load path and other settings
