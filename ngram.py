@@ -25,6 +25,7 @@ def Ngram(article):
         ngram_list.append(th_tokens)
     return ngram_list
 
+
 def main():
     train_data = pd.read_csv('datasets/sentiment_analysis_trainingset.csv')
     valid_data = pd.read_csv('datasets/sentiment_analysis_validationset.csv')

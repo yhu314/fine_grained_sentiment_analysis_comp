@@ -1,11 +1,13 @@
 data_path_config = {
-    'train_data_path': 'data/sentiment_analysis_trainingset.csv',
-    'valid_data_path': 'data/sentiment_analysis_validationset.csv',
-    'test_data_path': 'data/sentiment_analysis_testa.csv',
-    'submission_path': 'data/submission.csv',
-    'embedding_path': 'word2vec/model_word_200.kv',
-    'embedding_vocab_path': 'word2vec/model_word_vocab_200.kv',
-    'embedding_dim': 200
+    'train_data_path': '../data/sentiment_analysis_trainingset.csv',
+    'valid_data_path': '../data/sentiment_analysis_validationset.csv',
+    'test_data_path': '../data/sentiment_analysis_testa.csv',
+    'submission_path': '../data/submission.csv',
+    'embedding_path': '../word2vec/model_word_200.kv',
+    'embedding_vocab_path': '../word2vec/model_word_vocab_200.kv',
+    'embedding_dim': 200,
+    'check_points_base_dir': '../checkpoints',
+    'model_save_base_dir': '../models',
 }
 
 

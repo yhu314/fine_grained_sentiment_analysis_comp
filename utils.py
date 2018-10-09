@@ -16,7 +16,7 @@ def build_tok2idx(w2v):
     return tok2idx
 
 
-def build_embedding_matrx(tok2idx, w2v, embedding_dim):
+def build_embedding_matrix(tok2idx, w2v, embedding_dim):
     n_words = len(tok2idx)
     embedding_matrix = np.zeros((n_words+1, embedding_dim), dtype=float)
     for tok, idx in tok2idx.items():
