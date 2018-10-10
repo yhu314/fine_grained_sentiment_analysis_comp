@@ -11,6 +11,11 @@ data_path_config = {
 }
 
 
+hierarchical_model_config = {
+    'max_sentences': 240,
+    'max_sentence_length': 40
+}
+
 topic_binary_model_config = {
     'max_len': 1024,
     'batch_size': 64

@@ -63,14 +63,15 @@ class UserCommentDataset(Dataset):
 
         if self.is_train:
             targets = self.targets[idx, :]
-            targets_cat = np.zeros(len(targets)*len(labels_dict))
-            for idx, target in enumerate(targets):
-                targets_cat[idx*len(labels_dict)+labels_dict[target]] = 1
+            targets_list = []
+            for target in targets:
+                target_cat = np.zeros(len(labels_array), dtype='int8')
+                target_cat[labels_dict[target]] = 1
+                targets_list.append(target_cat)
 
         else:
-            targets = None
-            targets_cat = None
-        return content, targets, targets_cat
+            targets_list = None
+        return content, targets_list
 
 
 if __name__ == '__main__':

@@ -28,7 +28,7 @@ def generate_early_stopping():
 
 
 def generate_tensorboard(model_name, target):
-    dir = './logs/' + model_name + '_' + target
+    dir = '../logs/' + model_name + '_' + target
     if not os.path.exists(dir):
         os.makedirs(dir)
     tb = TensorBoard(log_dir=dir)
