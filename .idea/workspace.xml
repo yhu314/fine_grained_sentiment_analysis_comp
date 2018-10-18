@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35f2a96e-c994-48b7-9e77-b8183914e8fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/dpcnn-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/dpcnn-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dpcnn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dpcnn.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dpcnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/dpcnn.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,10 +124,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/text_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1406">
+            <state relative-caret-position="-217">
               <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
@@ -151,11 +149,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text_cnn_all_targets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="247" column="4" selection-start-line="247" selection-start-column="4" selection-end-line="250" selection-end-column="57" />
+            <state relative-caret-position="732">
+              <caret line="230" column="39" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <marker date="1539622554794" expanded="true" signature="519:520" ph="..." />
@@ -374,7 +372,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <frame x="-7" y="-7" width="2575" height="1415" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15188867" />
@@ -447,16 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/text_cnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1406">
-          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train_config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -496,11 +484,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/text_cnn_all_targets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="247" column="4" selection-start-line="247" selection-start-column="4" selection-end-line="250" selection-end-column="57" />
+        <state relative-caret-position="732">
+          <caret line="230" column="39" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="39" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <marker date="1539622554794" expanded="true" signature="519:520" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text_cnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-217">
+          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
