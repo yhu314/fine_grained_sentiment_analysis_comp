@@ -4,7 +4,8 @@ from torch_data import UserCommentDataset
 from gensim.models import KeyedVectors
 from utils import build_tok2idx, build_embedding_matrix
 import numpy as np
-from keras.layers import Input, TimeDistributed, CuDNNGRU, Embedding, Bidirectional, Dense
+from keras.layers import Input, TimeDistributed, CuDNNGRU, Embedding, Bidirectional,\
+    Dense, Reshape, RepeatVector, Permute, Multiply, BatchNormalization, Concatenate
 from keras import Model
 from keras_callbacks import *
 import json
@@ -50,6 +51,16 @@ def sentence2array(data, tok2idx):
     return sentence_array
 
 
+def self_attention_block(sequence, seq_len):
+    att = Dense(1, activation='sigmoid')(sequence)
+    weight = Reshape((-1,))(att)
+    weight = RepeatVector(seq_len)(weight)
+    weight = Permute((2, 1))(weight)
+    seq_att = Multiply()([sequence, weight])
+    seq_att = BatchNormalization()(seq_att)
+    return seq_att
+
+
 def build_model(config, cache):
     embedding_matrix, max_sentences, max_words = cache
     gru_cells = config['gru_cells']
@@ -72,8 +83,118 @@ def build_model(config, cache):
     l_lstm_sent = Bidirectional(CuDNNGRU(gru_cells, return_sequences=True))(review_encoder)
     predicts = list()
     for target in targets:
-        output_lstm = Bidirectional(CuDNNGRU(gru_cells, return_sequences=False))(l_lstm_sent)
+        output_lstm = Bidirectional(CuDNNGRU(gru_cells, return_sequences=True))(l_lstm_sent)
         output = Dense(output_shape, activation='softmax', name=target)(output_lstm)
+        predicts.append(output)
+    model = Model(review_input, predicts)
+    return model
+
+
+def build_self_attention_model(config, cache):
+    embedding_matrix, max_sentences, max_words = cache
+    gru_cells = config['gru_cells']
+    output_shape = config['output_shape']
+    n_words, embedding_dim = embedding_matrix.shape
+    embedding_layer = Embedding(input_dim=n_words,
+                                output_dim=embedding_dim,
+                                weights=[embedding_matrix],
+                                trainable=False)
+
+    # Input single sentence
+    sentence_input = Input((max_words,), dtype='int32')
+    embedded_sentence = embedding_layer(sentence_input)
+    sentence_lstm = Bidirectional(CuDNNGRU(gru_cells, return_sequences=False))(embedded_sentence)
+    sent_encoder = Model(sentence_input, sentence_lstm)
+
+    # Paragraph level
+    review_input = Input(shape=(max_sentences, max_words), dtype='int32')
+    review_encoder = TimeDistributed(sent_encoder)(review_input)
+    l_lstm_sent = Bidirectional(CuDNNGRU(gru_cells, return_sequences=True))(review_encoder)
+    predicts = list()
+    for target in targets:
+        att = Dense(1, activation='sigmoid')(l_lstm_sent)
+        weight = Reshape((-1,))(att)
+        weight = RepeatVector(gru_cells*2)(weight)
+        weight = Permute((2, 1))(weight)
+        l_lstm_att = Multiply()([l_lstm_sent, weight])
+        l_lstm_att = BatchNormalization()(l_lstm_att)
+        l_lstm = Bidirectional(CuDNNGRU(100, return_sequences=False))(l_lstm_att)
+        output = Dense(output_shape, activation='softmax', name=target)(l_lstm)
+        predicts.append(output)
+    model = Model(review_input, predicts)
+    return model
+
+
+def build_self_attention_model_output_update(config, cache):
+    embedding_matrix, max_sentences, max_words = cache
+    gru_cells = config['gru_cells']
+    output_shape = config['output_shape']
+    n_words, embedding_dim = embedding_matrix.shape
+    embedding_layer = Embedding(input_dim=n_words,
+                                output_dim=embedding_dim,
+                                weights=[embedding_matrix],
+                                trainable=True)
+
+    # Input single sentence
+    sentence_input = Input((max_words,), dtype='int32')
+    embedded_sentence = embedding_layer(sentence_input)
+    sentence_lstm = Bidirectional(CuDNNGRU(gru_cells, return_sequences=False))(embedded_sentence)
+    sent_encoder = Model(sentence_input, sentence_lstm)
+
+    # Paragraph level
+    review_input = Input(shape=(max_sentences, max_words), dtype='int32')
+    review_encoder = TimeDistributed(sent_encoder)(review_input)
+    l_lstm_sent = Bidirectional(CuDNNGRU(gru_cells, return_sequences=True))(review_encoder)
+    predicts = list()
+    for target in targets:
+        att = Dense(1, activation='sigmoid')(l_lstm_sent)
+        weight = Reshape((-1,))(att)
+        weight = RepeatVector(gru_cells*2)(weight)
+        weight = Permute((2, 1))(weight)
+        l_lstm_att = Multiply()([l_lstm_sent, weight])
+        l_lstm_att = BatchNormalization()(l_lstm_att)
+        l_lstm = Bidirectional(CuDNNGRU(100, return_sequences=False))(l_lstm_att)
+        target_mentioned = Dense(1, activation='softmax', name=target+'mentioned')(l_lstm)
+        target_sentiment = Dense(output_shape-1, activation='softmax', name=target+'sentiment')(l_lstm)
+        target_concat = Concatenate(axis=-1)([target_mentioned, target_sentiment])
+        output = Dense(output_shape, activation='softmax', name=target)(target_concat)
+        predicts.append(output)
+    model = Model(review_input, predicts)
+    return model
+
+
+def build_self_attention_model_all_level(config, cache):
+    embedding_matrix, max_sentences, max_words = cache
+    gru_cells = config['gru_cells']
+    output_shape = config['output_shape']
+    n_words, embedding_dim = embedding_matrix.shape
+    embedding_layer = Embedding(input_dim=n_words,
+                                output_dim=embedding_dim,
+                                weights=[embedding_matrix],
+                                trainable=False)
+
+    # Input single sentence
+    sentence_input = Input((max_words,), dtype='int32')
+    embedded_sentence = embedding_layer(sentence_input)
+    sentence_att = self_attention_block(embedded_sentence, embedding_dim)
+    sentence_lstm = Bidirectional(CuDNNGRU(gru_cells, return_sequences=False))(sentence_att)
+    sent_encoder = Model(sentence_input, sentence_lstm)
+
+    # Paragraph level
+    review_input = Input(shape=(max_sentences, max_words), dtype='int32')
+    review_encoder = TimeDistributed(sent_encoder)(review_input)
+    l_lstm_sent = Bidirectional(CuDNNGRU(gru_cells, return_sequences=True))(review_encoder)
+    predicts = list()
+    for target in targets:
+        # att = Dense(1, activation='sigmoid')(l_lstm_sent)
+        # weight = Reshape((-1,))(att)
+        # weight = RepeatVector(gru_cells*2)(weight)
+        # weight = Permute((2, 1))(weight)
+        # l_lstm_att = Multiply()([l_lstm_sent, weight])
+        # l_lstm_att = BatchNormalization()(l_lstm_att)
+        l_lstm_att = self_attention_block(l_lstm_sent, gru_cells * 2)
+        l_lstm = Bidirectional(CuDNNGRU(100, return_sequences=False))(l_lstm_att)
+        output = Dense(output_shape, activation='softmax', name=target)(l_lstm)
         predicts.append(output)
     model = Model(review_input, predicts)
     return model
@@ -120,21 +241,23 @@ def main():
     cache = (w2v_matrix, 240, 40)
 
     print('----------Modeling Time----------')
-    model = build_model(config, cache)
+    model = build_self_attention_model_output_update(config, cache)
     model.compile('sgd', 'categorical_crossentropy', metrics=['acc', ])
     print('------create callbacks')
+    model_name = 'HATT_ATTENTION_ALL_OUTPUT_TWO'
     lr_schedule = generate_learning_rate_schedule(0.001, 0.1, 20, 0)
+    checkpoint = generate_check_point(model_name)
     early_stopping = generate_early_stopping()
-    tensorboard = generate_tensorboard('HATT_NO_ATTENTION', 'ALL')
-    callbacks = [lr_schedule, tensorboard, early_stopping]
-    model.fit(train_array, train_targets, 64, 100,
+    tensorboard = generate_tensorboard(model_name, 'ALL')
+    callbacks = [lr_schedule, tensorboard, early_stopping, checkpoint]
+    model.fit(train_array, train_targets, 32, 100,
               verbose=1,
               validation_data=(validate_array, validate_targets),
               callbacks=callbacks)
     test_target_pred = model.predict(test_arrray)
-    with open('../submissions/HATT_NO_ATTENTION', 'wb') as file:
-        json.dump(test_target_pred, file)
-    model.save('../models/HATT_NO_ATTENTION.h5')
+    submission_path = '../submissions/' + model_name + '.npy'
+    model.save('../models/' + model_name + '.h5')
+    np.save(submission_path, test_target_pred)
     return
 
 
