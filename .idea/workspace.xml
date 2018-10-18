@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="35f2a96e-c994-48b7-9e77-b8183914e8fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/dpcnn-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/dpcnn-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dpcnn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dpcnn.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dpcnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/dpcnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keras_callbacks.py" beforeDir="false" afterPath="$PROJECT_DIR$/keras_callbacks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_cnn_all_targets.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_cnn_all_targets.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,20 +51,20 @@
         <counts>
           <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.4" value="5" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="842" />
-          <entry key="py" value="5502" />
+          <entry key="py" value="5546" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="6344" />
+          <entry key="Python" value="6388" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/keras_callbacks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
+            <state relative-caret-position="323">
               <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
               <folding>
                 <element signature="e#0#94#0" expanded="true" />
@@ -129,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="92" column="35" lean-forward="true" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+            <state relative-caret-position="1406">
+              <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
               </folding>
@@ -138,24 +138,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dpcnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1094">
-              <caret line="91" column="35" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
+            <state relative-caret-position="-684">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1539878510189" expanded="true" signature="2104:4025" ph="..." />
+                <marker date="1539879543155" expanded="true" signature="2139:4241" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/text_cnn_all_targets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="218" column="40" lean-forward="true" selection-start-line="218" selection-start-column="40" selection-end-line="218" selection-end-column="40" />
+            <state relative-caret-position="200">
+              <caret line="247" column="4" selection-start-line="247" selection-start-column="4" selection-end-line="250" selection-end-column="57" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <marker date="1539622554794" expanded="true" signature="519:520" ph="..." />
@@ -233,9 +233,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="712" />
-    <option name="y" value="12" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1221" />
+    <option name="y" value="24" />
     <option name="width" value="2055" />
     <option name="height" value="2139" />
   </component>
@@ -374,15 +374,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-128" y="12" width="1370" height="1426" extended-state="0" />
+    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2870229" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15188867" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43764892" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44082606" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39957035" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -420,6 +420,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/transformers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_callbacks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text_cnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1406">
+          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train_config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -446,61 +483,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transformers.py">
+    <entry file="file://$PROJECT_DIR$/dpcnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keras_callbacks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+        <state relative-caret-position="-684">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
           <folding>
-            <element signature="e#0#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-          <folding>
-            <element signature="e#41#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/text_cnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="92" column="35" lean-forward="true" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1539879543155" expanded="true" signature="2139:4241" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/text_cnn_all_targets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="218" column="40" lean-forward="true" selection-start-line="218" selection-start-column="40" selection-end-line="218" selection-end-column="40" />
+        <state relative-caret-position="200">
+          <caret line="247" column="4" selection-start-line="247" selection-start-column="4" selection-end-line="250" selection-end-column="57" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <marker date="1539622554794" expanded="true" signature="519:520" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dpcnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1094">
-          <caret line="91" column="35" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1539878510189" expanded="true" signature="2104:4025" ph="..." />
           </folding>
         </state>
       </provider>

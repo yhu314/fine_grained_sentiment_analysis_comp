@@ -15,7 +15,8 @@ from train_config import data_path_config, targets
 from gensim.models import KeyedVectors
 from utils import *
 config = tf.ConfigProto()
-config.gpu_options.per_process_gpu_memory_fraction = 0.9
+config.gpu_options.per_process_gpu_memory_fraction = 1
+config.gpu_options.allow_growth=True
 set_session(tf.Session(config=config))
 K.clear_session()
 
@@ -83,12 +84,17 @@ def main():
     X_train_seq = texts_to_sequences(train_sentences, tok2idx)
     X_valid_seq = texts_to_sequences(validate_sentences, tok2idx)
     X_test_seq = texts_to_sequences(test_sentences, tok2idx)
+
+    X_train_pad = pad_sequences(X_train_seq, maxlen=maxlen)
+    X_valid_pad = pad_sequences(X_valid_seq, maxlen=maxlen)
+    X_test_pad = pad_sequences(X_test_seq, maxlen=maxlen)
+
     embedding_layer = Embedding(input_dim=w2v_matrix.shape[0],
                                 output_dim=w2v_matrix.shape[1],
                                 weights=[w2v_matrix],
                                 trainable=False)
     model = build_model(embedding_layer, maxlen, targets)
-    model.compile(optimizer='sgd', loss='categorical_crossentropy', metrics=['acc'])
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['acc'])
     model.fit(X_train_pad, Y_train)
 
 
