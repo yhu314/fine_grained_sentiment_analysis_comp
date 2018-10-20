@@ -1,6 +1,7 @@
 import numpy as np
 import pickle
 
+
 output_embedding_path = '../tencent_embedding/embedding_array.npy'
 output_vocab_path = '../tencent_embedding/vocab.pickle'
 

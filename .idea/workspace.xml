@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35f2a96e-c994-48b7-9e77-b8183914e8fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tencent_embedding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/dpcnn-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/dpcnn-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dpcnn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dpcnn.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled1-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tencent_embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencent_embedding.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,12 +57,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="1018" />
-          <entry key="py" value="6088" />
+          <entry key="py" value="6089" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="7106" />
+          <entry key="Python" value="7107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -129,11 +127,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tencent_embedding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="82">
+              <caret line="16" column="21" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="21" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1539954096170" expanded="true" signature="1167:1172" ph="..." />
+                <marker date="1539954536823" expanded="true" signature="1168:1173" ph="..." />
               </folding>
             </state>
           </provider>
@@ -235,7 +233,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1234" />
     <option name="y" value="57" />
     <option name="width" value="2055" />
@@ -399,8 +397,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="2575" height="1415" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1530815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -532,11 +529,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tencent_embedding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        <state relative-caret-position="82">
+          <caret line="16" column="21" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="21" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1539954096170" expanded="true" signature="1167:1172" ph="..." />
+            <marker date="1539954536823" expanded="true" signature="1168:1173" ph="..." />
           </folding>
         </state>
       </provider>
