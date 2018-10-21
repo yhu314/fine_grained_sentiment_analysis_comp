@@ -1,8 +1,8 @@
 # 建立词典
 def build_voca():
     Dict = []
-    F_out = open('datasets/vocabulary_Chinese.txt','w',encoding='utf-8')
-    with open('Tencent_AILab_ChineseEmbedding.txt','r',encoding='utf-8') as F:
+    F_out = open('../datasets/vocabulary_Chinese.txt','w',encoding='utf-8')
+    with open('../tencent_embedding/Tencent_AILab_ChineseEmbedding.txt','r',encoding='utf-8') as F:
         line = F.readline()
         while line:
             try:
@@ -16,9 +16,12 @@ def build_voca():
     print('save vocabulary complete! ')
     F_out.close()
 
+
 # 输入句子，清洗数据
 def clear_data(sentence):
-    symbols = [' ','⏰','😂','ಥ','≧','∇','≦','～', '。', '，' , '』', '『', '"','、', '！', '】', '【', '-', '.', '\n', '？', '）','（','；',' ','：','…','^','⊙','o','_','-',')','(','~','','','']
+    symbols = [' ','⏰','😂','ಥ','≧','∇','≦','～', '。', '，' , '』', '『', '"','、', '！', '】', '【',
+               '-', '.', '\n', '？', '）','（','；',' ','：','…','^',
+               '⊙','o','_','-',')','(','~','','','', '\r\n']
     sent = ''
     # 防止出现空行
     for s in sentence.split():
@@ -34,19 +37,19 @@ def cut_sentence(train_file, valid_file, test_file):
 
     import jieba
     import pandas as pd
-    jieba.load_userdict('datasets/vocabulary_Chinese.txt')
+    jieba.load_userdict('../datasets/vocabulary_Chinese.txt')
 
-    train_data = pd.read_csv(train_file)
-    valid_data = pd.read_csv(valid_file)
-    test_data = pd.read_csv(test_file)
+    train_data = pd.read_csv(train_file, index_col=0)
+    valid_data = pd.read_csv(valid_file, index_col=0)
+    test_data = pd.read_csv(test_file, index_col=0)
 
-    print('train_data length '+ str(len(train_data)))
-    print('valid_data length '+ str(len(valid_data)))
-    print('test_data length '+ str(len(test_data)))
+    print('train_data length ' + str(len(train_data)))
+    print('valid_data length ' + str(len(valid_data)))
+    print('test_data length ' + str(len(test_data)))
 
-    F_train = open('datasets/train_data_jieba.txt','w',encoding='utf-8')
-    F_test = open('datasets/test_data_jieba.txt','w',encoding='utf-8')
-    F_valid = open('datasets/valid_data_jieba.txt','w',encoding='utf-8')
+    F_train = open('../datasets/train_data_jieba.txt', 'w', encoding='utf-8')
+    F_test = open('../datasets/test_data_jieba.txt', 'w', encoding='utf-8')
+    F_valid = open('../datasets/valid_data_jieba.txt', 'w', encoding='utf-8')
     
     num = 0
     for sentence in train_data['content']:
@@ -54,13 +57,12 @@ def cut_sentence(train_file, valid_file, test_file):
         sentence = clear_data(sentence)
         sentence = jieba.lcut(sentence)
         
-        F_train.write(str(num)+' '+' '.join(sentence))
+        F_train.write(' '.join(sentence))
         F_train.write('\n')
         
     print(num)
     F_train.close()
     print('train_data cut complete')
-
 
     for sentence in valid_data['content']:
         sentence = clear_data(sentence)
@@ -78,7 +80,14 @@ def cut_sentence(train_file, valid_file, test_file):
     F_test.close()
     print('test_data cut complete')
 
+
 def main():
     build_voca()
-    cut_sentence('datasets/sentiment_analysis_trainingset.csv','datasets/sentiment_analysis_validationset.csv','datasets/sentiment_analysis_testa.csv')
-main()
+    cut_sentence('../datasets/sentiment_analysis_trainingset.csv',
+                 '../datasets/sentiment_analysis_validationset.csv',
+                 '../datasets/sentiment_analysis_testa.csv')
+    return
+
+
+if __name__ == '__main__':
+    main()

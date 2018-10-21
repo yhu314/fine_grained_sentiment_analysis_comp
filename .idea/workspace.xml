@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35f2a96e-c994-48b7-9e77-b8183914e8fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled1-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tencent_embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencent_embedding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Jiebe_Seg_With_Tecent_Vocab-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Jiebe_Seg_With_Tecent_Vocab-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jiebe_Seg_With_Tecent_Vocab.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Jiebe_Seg_With_Tecent_Vocab.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processData.py" beforeDir="false" afterPath="$PROJECT_DIR$/processData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_classification_zhuang.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/text_classification_zhuang.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,22 +60,22 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="1018" />
-          <entry key="py" value="6089" />
+          <entry key="py" value="6220" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="7107" />
+          <entry key="Python" value="7238" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="3" />
+          <entry key="py" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="3" />
+          <entry key="Python" value="6" />
         </counts>
       </usages-collector>
     </session>
@@ -80,10 +83,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transformers.py">
+        <entry file="file://$PROJECT_DIR$/preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="285">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,7 +109,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-336">
               <caret column="3" selection-start-column="3" selection-end-column="3" />
               <folding>
                 <element signature="e#41#59#0" expanded="true" />
@@ -113,9 +119,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/word2vec.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processData.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1121">
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="410">
               <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
@@ -124,14 +144,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tencent_embedding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
+            <state relative-caret-position="304">
               <caret line="16" column="21" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="21" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1539954536823" expanded="true" signature="1168:1173" ph="..." />
+                <marker date="1540010133875" expanded="true" signature="1168:1173" ph="..." />
               </folding>
             </state>
           </provider>
@@ -140,44 +160,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dpcnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
+            <state relative-caret-position="19">
               <caret line="18" column="31" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1539879543155" expanded="true" signature="2139:4241" ph="..." />
+                <marker date="1540010133854" expanded="true" signature="2139:4241" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/text_cnn_all_targets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4180">
+            <state relative-caret-position="4370">
               <caret line="230" column="39" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1539622554794" expanded="true" signature="519:520" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train_config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="25" column="33" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/metrics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <marker date="1540010133882" expanded="true" signature="519:520" ph="..." />
               </folding>
             </state>
           </provider>
@@ -186,7 +186,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
+            <state relative-caret-position="-754">
               <caret line="25" column="20" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="20" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -230,10 +230,11 @@
         <option value="$PROJECT_DIR$/text_cnn_all_targets.py" />
         <option value="$PROJECT_DIR$/dpcnn.py" />
         <option value="$PROJECT_DIR$/tencent_embedding.py" />
+        <option value="$PROJECT_DIR$/processData.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1234" />
     <option name="y" value="57" />
     <option name="width" value="2055" />
@@ -274,7 +275,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tencent_embedding">
+  <component name="RunManager" selected="Python.processData">
     <configuration name="dpcnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fine_grained_sentiment_analysis_comp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -288,6 +289,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dpcnn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="processData" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fine_grained_sentiment_analysis_comp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processData.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -364,9 +386,11 @@
       <item itemvalue="Python.dpcnn" />
       <item itemvalue="Python.text_cnn_all_targets" />
       <item itemvalue="Python.tencent_embedding" />
+      <item itemvalue="Python.processData" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.processData" />
         <item itemvalue="Python.tencent_embedding" />
         <item itemvalue="Python.dpcnn" />
         <item itemvalue="Python.text_cnn_all_targets" />
@@ -397,7 +421,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="7" />
+    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1530815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -429,65 +454,10 @@
         <state relative-caret-position="-1596" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/word2vec.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transformers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
           <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keras_callbacks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-          <folding>
-            <element signature="e#41#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dpcnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1539879543155" expanded="true" signature="2139:4241" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/text_cnn_all_targets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4180">
-          <caret line="230" column="39" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <marker date="1539622554794" expanded="true" signature="519:520" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -507,9 +477,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/keras_callbacks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dpcnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1540010133854" expanded="true" signature="2139:4241" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/torch_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="-754">
           <caret line="25" column="20" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="20" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -517,9 +508,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336">
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word2vec.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1121">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/text_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="410">
           <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
@@ -529,11 +550,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tencent_embedding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
+        <state relative-caret-position="304">
           <caret line="16" column="21" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="21" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1539954536823" expanded="true" signature="1168:1173" ph="..." />
+            <marker date="1540010133875" expanded="true" signature="1168:1173" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text_cnn_all_targets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4370">
+          <caret line="230" column="39" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1540010133882" expanded="true" signature="519:520" ph="..." />
           </folding>
         </state>
       </provider>
